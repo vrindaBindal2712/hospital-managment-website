@@ -10,12 +10,15 @@ if (isset($_POST['submit'])) {
     $insert = mysqli_query($conn, "INSERT INTO contact_form(name, email, number, date) VALUES('$name', '$email', '$number', '$date')") or die('Query failed: ' . mysqli_error($conn));
 
     if ($insert) {
-        echo 'Appointment made successfully!';
+        // Redirect to a different page after a successful appointment
+        header("Location: thankyou.php");  // You can change 'thankyou.php' to any other page you want to redirect to
+        exit();
     } else {
         echo 'Appointment failed';
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
